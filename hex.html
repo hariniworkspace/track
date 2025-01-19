@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+    <link href="style4.css" rel ="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    .card {
+        text-align: center;
+        margin: 20px;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.118);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img {
+        width: 120px;
+        height: 150px;
+        border-radius: 5%;
+        margin-bottom: 0;
+    }
+    .name-data
+{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.096);
+    width: 80%;
+    margin-left: 10%;
+    
+}
+.name-data ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.name-data table td
+{
+    background-color: rgb(6, 0, 76);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 80px;
+    margin-top: 60px;
+    color: white;
+    padding: 30px;
+    
+    
+}
+.table
+{
+    display: grid;
+    grid-template-columns: 2fr 2fr ;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+}
+.span
+{
+    background-color: white;
+    color: black;
+}
+
+.student-data {
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 70%; 
+}
+
+.student-data table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.student-data th, 
+.student-data td {
+    padding: 12px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.student-data th {
+    background-color: rgb(6, 0, 76);
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.student-data tbody tr:hover {
+    background-color: rgba(6, 0, 76, 0.356); 
+    color: white;
+}
+.student-data tbody tr:hover{
+    color: white;
+}
+
+ 
+
+.student-data .cardheader {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+}
+
+.student-data table td {
+    color: #555;
+}
+
+.student-data table th {
+    color: #ffffff;
+}
+.card img
+{
+    height: 200px;
+    width: 200px;
+}
+.h2
+{
+    text-align: center;
+    margin-top: 5%;
+}
+ 
+
+.data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.student-data.rounds {
+    flex: 1 1 calc(50% - 40px);
+    max-width: 45%;
+    box-sizing: border-box;
+}
+
+.rounds table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.rounds td {
+    padding: 12px 15px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.student-data .cardheader {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+}
+
+.student-data table td {
+    color: #555;
+}
+
+.student-data table th {
+    color: #ffffff;
+}
+.h2
+{
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+
+ .rounds
+ {
+    padding: 12px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+    border: 1px solid #ddd;
+ }  
+ .rounds table
+ {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+ }
+ .rounds .name-data
+ {
+    margin-top: 20px;
+ }
+ .rounds .name-data tbody td
+ {
+    color: rgb(255, 255, 255);
+ }
+  
+</style>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <li>
+                <a href="student.html">
+                    <i class="fas fa-user-graduate"></i>
+                    Student
+                </a>
+            </li>
+            <li>
+                <a href="staff.html">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>Staffs</div>
+                </a>
+            </li>
+            <li>
+                <a href="analytics.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>Analytics</div>
+                </a>
+            </li>
+           
+            <div class="help"></div>
+            <li>
+                
+                <a href="help.html">
+                    <i class="fas fa-question"></i>
+                    <div>About</div>
+                </a>
+            </li>
+        </div>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>VCET</h2>
+            </div>
+            <div class="search">
+                <input type="text" id="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+             <img src="./images/user.webp" height="40px" style="margin-left: 10px; margin-top:5px">
+            </div>
+        </div>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <img src="./images/hexa.png">
+                    <div class="card-content">
+                        <h3>HEXAWARE</h3>
+                        
+                    </div>
+                </div>
+            </div>
+                <div class="table">
+            <div class="name-data">
+                <h2>Eligiblity Criteria</h2><br/><hr/><br/>
+                <table>
+                    <tbody>
+                        <tr><td><strong>CGPA -</strong> 7.0</td></tr>
+                        <tr><td><strong>10th and 12th -</strong> No Criteria</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="name-data">
+                <h2>Students Eligible</h2><br/><hr/><br/>
+                <table>
+                    <tbody>
+                        <tr><td><strong>No of Students: </strong> 7</td></tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <h2 class="h2">Student's List</h2>
+            <div class="student-data">
+                <div class="details">
+                    <div class="cardheader">
+                    <table>
+                        <thead>
+                            <tr>
+                               <th>Register NO</th> 
+                               <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>913121104008</td>
+                                <td>Ajaykumar S B</td>
+                            </tr>
+                            <tr>
+                                <td>913121104049</td>
+                                <td>Kamalikanmani K</td>
+                            </tr>
+                            <tr>
+                                <td>913121104057</td>
+                                <td>Lavanya J</td>
+                            </tr>
+                            <tr>
+                                <td>913121104076</td>
+                                <td>Praveshini B N V</td>
+                            </tr>
+                            <tr>
+                                <td>913121104097</td>
+                                <td>Shifana AS</td>
+                            </tr>
+                            <tr>
+                                <td>913121104099</td>
+                                <td>Shreemathi P S</td>
+                            </tr>
+                            <tr>
+                                <td>913121104126</td>
+                                <td>Zahara Hashmi S</td>
+                            </tr>
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <div class="data">
+                <div class="student-data rounds">
+                    <h2>Round 1</h2> <div class="name-data">
+                        <h2>No of Students</h2><br/><hr/><br/>
+                        <table>
+                            <tbody>
+                                <tr><td><strong>5 </strong> </td></tr>
+                               
+                            </tbody>
+                        </table>
+                    </div><br/><hr/><br/>
+                    <table>
+                        <tbody>
+                                <tr><td>1</td><td>Lavanya J</td></tr>
+                                <tr><td>2</td><td>Natchathirah V S</td></tr>
+                                <tr><td>3</td><td>Ravikumar O R G</td></tr>
+                                <tr><td>4</td><td>S Saffryn Timothy</td></tr>
+                                <tr><td>5</td><td>Hariharan R K</td></tr>
+                                <tr><td>6</td><td>Archana K</td></tr>
+                                <tr><td>7</td><td>Vanitha S / Meera.T</td></tr>
+                                <tr><td>8</td><td>Prem Kumar P</td></tr>
+                                <tr><td>9</td><td>Swetha S</td></tr>
+                                <tr><td>10</td><td>Harineeswari K</td></tr>
+                                <tr><td>11</td><td>Lakshmi Shri S</td></tr>
+                                <tr><td>12</td><td>Abitha N G R</td></tr>
+                                <tr><td>13</td><td>Sri Nandhini R</td></tr>
+                                <tr><td>14</td><td>Boomika S</td></tr>
+                                <tr><td>15</td><td>Shifana A</td></tr>
+                                <tr><td>16</td><td>Kamali Kanmani K</td></tr>
+                                <tr><td>17</td><td>Bhalaji C K</td></tr>
+                                <tr><td>18</td><td>Subbiah S</td></tr>
+                                <tr><td>19</td><td>Harshini B</td></tr>
+                                <tr><td>20</td><td>P. Sowmiya Eswari</td></tr>
+                                <tr><td>21</td><td>S. Anunandhana</td></tr>
+                                <tr><td>22</td><td>Sabareesh S</td></tr>
+                                <tr><td>23</td><td>Bhuvanesh V</td></tr>
+                                <tr><td>24</td><td>Varshini B</td></tr>
+                                <tr><td>25</td><td>Ajeetha B</td></tr>
+                                <tr><td>26</td><td>Ramkishan C B</td></tr>
+                                <tr><td>27</td><td>Varshni Priya A</td></tr>
+                                <tr><td>28</td><td>Shalini Priya N</td></tr>
+                                <tr><td>29</td><td>Vishnu Kumar M J / Rajesh C</td></tr>
+                                <tr><td>30</td><td>Rithanya L</td></tr>
+                                <tr><td>31</td><td>Nihil Sankar E</td></tr>
+                                <tr><td>32</td><td>Pradeesha C</td></tr>
+                                <tr><td>33</td><td>Keerthiga M</td></tr>
+                                <tr><td>34</td><td>Sahana M</td></tr>
+
+        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="student-data rounds">
+                    <h2>Round 2</h2> <div class="name-data">
+                        <h2>No of Students</h2><br/><hr/><br/>
+                        <table>
+                            <tbody>
+                                <tr><td><strong>6</strong> </td></tr>
+                               
+                            </tbody>
+                        </table>
+                    </div><br/><hr/><br/>
+                    <table>
+                        <tbody>
+                            <tr><td>1</td><td>Praveshini B N V</td></tr>
+                            <tr><td>2</td><td>Lavanya J</td></tr>
+                            <tr><td>3</td><td>Shifana A</td></tr>
+                            <tr><td>4</td><td>Swetha S</td></tr>
+                            <tr><td>5</td><td>Kamali Kanmani K</td></tr>
+                            <tr><td>6</td><td>Nihil Sankar E</td></tr>
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+               
+                <div class="student-data rounds">
+                    <h2>Round 3</h2>  <div class="name-data">
+                        <h2>No of Students</h2><br/><hr/><br/>
+                        <table>
+                            <tbody>
+                                <tr><td><strong>6</strong> </td></tr>
+                               
+                            </tbody>
+                        </table>
+                    </div><br/><hr/><br/>
+                    <table>
+                        <tbody>
+                            <tr><td>1</td><td>Lavanya J</td></tr>
+                            <tr><td>2</td><td>Shifana A</td></tr>
+                            <tr><td>3</td><td>Swetha S</td></tr>
+                            <tr><td>4</td><td>Kamali Kanmani K</td></tr>
+                            <tr><td>5</td><td>Praveshini B N V</td></tr>
+                            <tr><td>6</td><td>Ajay Kumar S B</td></tr>
+                            
+                              
+                        </tbody>
+                    </table>
+                </div>
+                <div class="student-data rounds">
+                    <h2>Round 4</h2>  <div class="name-data">
+                        <h2>No of Students</h2><br/><hr/><br/>
+                        <table>
+                            <tbody>
+                                <tr><td><strong>9</strong> </td></tr>
+                               
+                            </tbody>
+                        </table>
+                    </div><br/><hr/><br/>
+                    <table>
+                        <tbody>
+                            <tr><td>1</td><td>Ajay Kumar S B</td></tr>
+                            <tr><td>2</td><td>Kamali Kanmani K</td></tr>
+                            <tr><td>3</td><td>Lavanya J</td></tr>
+                            <tr><td>4</td><td>Praveshini B N V</td></tr>
+                            <tr><td>5</td><td>Shifana A</td></tr>
+                            <tr><td>6</td><td>Shreemathi P S</td></tr>
+                            <tr><td>7</td><td>Zahara Hashmi S</td></tr>
+                            <tr><td>8</td><td>Shreemathi P S</td></tr>
+                            <tr><td>9</td><td>Swetha S</td></tr>
+
+                             
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+            </div>
+            </body>
+            </html>
+            

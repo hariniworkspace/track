@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+    <link href="style1.css" rel ="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    
+    .first
+    {
+        background-color: white;
+        
+    }
+    .first2
+    {
+        color: black;
+    }
+    .sidebar .fa-user-graduate
+    {
+        color: black;
+    }
+   
+    .filter-container {
+        margin-bottom: 20px;
+    }
+    .filter-container label {
+        margin-right: 10px;
+    }
+    .resultsTable table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .resultsTable table, th, td {
+        border: 1px solid #ddd;
+    }
+    .resultsTable th, .resultsTabletd {
+        padding: 8px;
+        text-align: left;
+    }
+    .searching
+    {
+        margin-left: 60px;
+        max-width: 90%;
+    }
+    .filter-btn
+    {
+       
+        height: 40px;
+        width: 80px;
+        background-color: rgb(10, 113, 217);
+        border: none;
+        
+        margin-left: 10px;
+        color: white;
+        border-radius: 5px;
+    }
+    .filter-btn:hover
+    {
+        font-size: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+      
+    }
+</style>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <li>
+                <a class="first"  href="student.html">
+                    <i class="fas fa-user-graduate"></i>
+                    <div class="first2">Student</div>
+                </a>
+            </li>
+            <li>
+                <a href="staff.html">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>Staffs</div>
+                </a>
+            </li>
+            <li>
+                <a href="analytics.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>Analytics</div>
+                </a>
+            </li>
+           
+            <div class="help"></div>
+            <li>
+                
+                <a href="help.html">
+                    <i class="fas fa-question"></i>
+                    <div>About</div>
+                </a>
+            </li>
+        </div>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>VCET</h2>
+            </div>
+           
+           
+           
+             
+        </div>
+        <div class="main" id="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">120</div>
+                        <div class="card-name">Total Students</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-user-graduate" style="margin-left: 70px;"></i>
+                    </div>
+
+                </div>
+           
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">119</div>
+                    <div class="card-name">Interested</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-hand" style="margin-left: 70px;"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">109</div>
+                    <div class="card-name">Eligible</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-solid fa-check" style="margin-left: 70px;"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">63</div>
+                    <div class="card-name">Placed</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-user-check" style="margin-left: 70px;"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">46</div>
+                    <div class="card-name">Yet to be Placed</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-question" style="margin-left: 70px;"></i>
+                </div>
+            </div>
+            </div>
+            <div class="charts">
+                <div class="chart" id="doughnut-chart">
+                    <h2>Invlovement in placements</h2>
+                    <canvas id="doughnut"></canvas>
+            </div>
+            <div class="chart" id="bar-chart">
+                <h2>Student's coding Track (sem-wise)</h2>
+                <canvas id="linechart"></canvas>
+            </div>
+        </div>
+        <div class="searching">
+        <h1>Search by Percentage</h1>
+    <div class="filter-container">
+        <label for="tenth">10th Percentage:</label>
+        <input type="number" id="tenth" placeholder="Min %" min="0" max="100"> -
+        <input type="number" id="tenthMax" placeholder="Max %" min="0" max="100">
+
+        <label for="twelfth">12th Percentage:</label>
+        <input type="number" id="twelfth" placeholder="Min %" min="0" max="100"> -
+        <input type="number" id="twelfthMax" placeholder="Max %" min="0" max="100">
+
+        <label for="ug">UG Percentage:</label>
+        <input type="number" id="ug" placeholder="Min %" min="0" max="100"> -
+        <input type="number" id="ugMax" placeholder="Max %" min="0" max="100">
+
+        <button class="filter-btn"onclick="filterResults()">Search</button>
+    </div>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>10th %</th>
+                <th>12th %</th>
+                <th>UG %</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+</div>
+        <div class="table">
+            <div class="student-data">
+                <div class="cardheader">
+                    <h2>Student's Data</h2>
+                    <table>
+                <thead>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Placement Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>913121104001</td>
+                        <td>Abirame S</td>
+                        <td> <span class="not-placed">Not Placed</span></td>
+                    </tr>
+                    <tr>
+                        <td>913121104003</td>
+                        <td>Abishek MRP</td>
+                        <td> <span class="placed"> Placed</span></td>
+                    </tr>
+                    
+                    <tr><td>913121104004</td><td>Abitha N G R</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104005</td><td>Affrin Fowmiya N</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104006</td><td>Ahamed R</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104007</td><td>Aishwarya P K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104008</td><td>Ajay Kumar S B</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104009</td><td>Ajeetha B</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104010</td><td>Amritha Lakshmi N A</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104011</td><td>Anunandhana S</td><td><span class="not-placed">Not Placed</span></td>></tr>
+                    <tr><td>913121104012</td><td>Archana K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104013</td><td>Bhalaji C K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104014</td><td>Bhuvanesh R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104015</td><td>Bhuvanesh V</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104016</td><td>Boomika.A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104017</td><td>Boomika S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104019</td><td>Devi sri Monica S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104020</td><td>Dhanaseelan v</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104021</td><td>Dhanush Kumar R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104024</td><td>Dinesh S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104026</td><td>Eswar G</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104027</td><td>Ganesh pandi P</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104028</td><td>Gnaneswar K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104029</td><td>Gowtham kumar N</td><td><span class="not-placed">Not Placed</span></td>></tr>
+                    <tr><td>913121104030</td><td>Hari Shankar M</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104031</td><td>Hariharan C</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104032</td><td>Hariharan R K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104033</td><td>Harineeswari K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104034</td><td>Harini S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104035</td><td>Harinidevi M</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104036</td><td>Harshini B</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104037</td><td>Himal P S G</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104038</td><td>Hirthikha K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104039</td><td>Iswaryapriyadharshni V</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104040</td><td>Jagashree Dharini M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104041</td><td>Jason Kingsly R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104042</td><td>Jaswanthlal BS</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104043</td><td>Jayanesh A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104044</td><td>Jegan P</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104045</td><td>Jeganath V K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104046</td><td>Jeya Sree D</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104047</td><td>Jhansi D</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104049</td><td>Kamali Kanmani K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104050</td><td>Kathier Khamar K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104051</td><td>Keerthana K S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104052</td><td>Keerthiga J S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104053</td><td>keerthiga M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104054</td><td>Krishnakumar S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104055</td><td>Krithiga Ganesh Kumar</td><td><span class="placed"> Placed</span></td></tr>
+                    <tr><td>913121104056</td><td>Lakshmi Shri S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104057</td><td>Lavanya J</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104058</td><td>Lavein S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104059</td><td>Logeshwaran MK</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104060</td><td>Mahalakshmi S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104061</td><td>Mathesh Babu R R M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104062</td><td>Meera.T</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104063</td><td>Menaga R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104065</td><td>Muhammad Fiaz S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104066</td><td>Nandhini C</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104068</td><td>Natchathirah V S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104069</td><td>Naveen Raj K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104070</td><td>Nihil Sankar E</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104071</td><td>Nikhitha S V</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104073</td><td>Pradeep SN</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104074</td><td>Pradeesha C</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104075</td><td>Pramodh k</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104076</td><td>Praveshini B N V</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104077</td><td>Prem Kumar P</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104078</td><td>Rajesh C</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104079</td><td>Ramkishan C B</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104080</td><td>Ravikumar O R G</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104081</td><td>Rithanya L</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104082</td><td>Rithi S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104083</td><td>Rithikha A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104084</td><td>Ronith Kevin A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104086</td><td>Sabareesh S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104087</td><td>Sachin Ram R N</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104088</td><td>S Saffryn Timothy</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104089</td><td>Sahana M</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104090</td><td>Sanjeeth M</td><td><span class="not-placed">Not Placed</span></td>></tr>
+                    <tr><td>913121104091</td><td>Santhoshini K S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104092</td><td>Sarvesh R L K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104093</td><td>Sathya R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104094</td><td>Seshanand</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104095</td><td>Shalini KS</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104096</td><td>Shalini Priya N</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104097</td><td>Shifana A</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104098</td><td>Shobika R J</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104099</td><td>Shreemathi P S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104100</td><td>Sibiraman S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104101</td><td>Sournaa sri A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104102</td><td>Sowmiya Eswari</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104103</td><td>Sri Nandhini.R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104104</td><td>Sriharish A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104105</td><td>SriSwetha T K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104106</td><td>Subbiah S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104107</td><td>Subhashree M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104109</td><td>Sudharshini K</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104110</td><td>Surya kumar K</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104111</td><td>Swetha S</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104112</td><td>Tamilselvan V</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104113</td><td>Thiri Lojan S</td><<td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104114</td><td>Vanitha S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104115</td><td>varshini B</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104116</td><td>Varshni priya A</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104117</td><td>Varun Kumar.S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104118</td><td>Varun T M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104119</td><td>Vasanth P</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104120</td><td>Vignesh KR N</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104121</td><td>Vijay Purushoth M</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104122</td><td>Vikram Ganesh T G</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104123</td><td>Vishnu Kumar M J</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104124</td><td>Yazhinipriya L</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104125</td><td>Yeshaashwini K R</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104126</td><td>Zahara Hashmi</td><td><span class="placed">Placed</span></td></tr>
+                    <tr><td>913121104301</td><td>ArunKumar A.S.</td><td><span class="not-placed">Not Placed</span></td>></tr>
+                    <tr><td>913121104302</td><td>Barathvaj T K S</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104304</td><td>Syed Abuthakir S A</td><td><span class="not-placed">Not Placed</span></td></tr>
+                    <tr><td>913121104305</td><td>Vishnu Kumar K R</td><td><span class="not-placed">Not Placed</span></td></tr>
+               </tbody>
+               </table>
+               </div>
+               </div>
+               <div class="offer">
+                <div class="offer-data">
+                    <div class="cardheader">
+                        <h2>Offer Details</h2>
+               <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>Count of Offers</th>
+                        <th>Company Names</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                        <td>Abishek MRP</td>
+                        <td>1</td>
+                        <td>CTS-DIG</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Aishwarya P K</td>
+                        <td>2</td>
+                        <td>CTS-DIG, ACCENTURE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Ajay Kumar S B</td>
+                        <td>2</td>
+                        <td>HEXAWARE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Boomika S</td>
+                        <td>4</td>
+                        <td>GARRETT, PROPEL, CTS-DIG, ACCENTURE</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Hariharan R K</td>
+                        <td>3</td>
+                        <td>PROPEL, ACCENTURE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Harinidevi M</td>
+                        <td>2</td>
+                        <td>CTS-DIG, ACCENTURE</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Jaswanthlal BS</td>
+                        <td>3</td>
+                        <td>GARRETT, ACCENTURE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Kamali Kanmani K</td>
+                        <td>2</td>
+                        <td>HEXAWARE, CTS GENC SELECT</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Lavanya J</td>
+                        <td>2</td>
+                        <td>HEXAWARE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Ravikumar O R G</td>
+                        <td>2</td>
+                        <td>INFOSYS, CTS GENC SELECT</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Sachin Ram R N</td>
+                        <td>3</td>
+                        <td>GARRETT, ACCENTURE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Santhoshini K S</td>
+                        <td>3</td>
+                        <td>MITSOGO, ACCENTURE, CTS GENC SELECT</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Shobika R J</td>
+                        <td>2</td>
+                        <td>CTS-DIG, ACCENTURE</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Shreemathi P S</td>
+                        <td>3</td>
+                        <td>GARRETT, HEXAWARE, LTIMINDTREE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Swetha S</td>
+                        <td>3</td>
+                        <td>MITSOGO, HEXAWARE, ACCENTURE</td>
+                    </tr>
+                    <tr>
+                       
+                        <td>Zahara Hashmi S</td>
+                        <td>2</td>
+                        <td>HEXAWARE, ACCENTURE</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+        </div>
+               </div>
+        </div>
+        </div>
+    </div>
+  
+    <script>
+        // Example dataset
+        const students = [
+  { name: "Abirame S", tenth: 94.60, twelfth: 95.56, ug: 8.75 },
+  { name: "Affrin Fowmiya N", tenth: 92.40, twelfth: 93.21, ug: 7.74 },
+  { name: "Ajeetha B", tenth: 77.80, twelfth: 82.91, ug: 7.82 },
+  { name: "Anunandhana S", tenth: 93.00, twelfth: 93.57, ug: 8.15 },
+  { name: "Archana K", tenth: 84.80, twelfth: 89.94, ug: 8.16 },
+  { name: "Bhalaji C K", tenth: 79.60, twelfth: 89.00, ug: 8.22 },
+  { name: "Dinesh S", tenth: 78.20, twelfth: 83.63, ug: 7.57 },
+  { name: "Eswar G", tenth: 76.00, twelfth: 83.24, ug: 7.77 },
+  { name: "Ganesh pandi P", tenth: 82.40, twelfth: 85.75, ug: 7.11 },
+  { name: "Gowtham kumar N", tenth: 86.20, twelfth: 87.98, ug: 7.40 },
+  { name: "Harshini B", tenth: 77.40, twelfth: 84.65, ug: 7.39 },
+  { name: "Hirthikha K", tenth: 91.80, twelfth: 91.29, ug: 8.70 },
+  { name: "Keerthiga M", tenth: 86.00, twelfth: 86.89, ug: 8.29 },
+  { name: "Krishnakumar S", tenth: 90.20, twelfth: 94.73, ug: 8.21 },
+  { name: "Lakshmi Shri S", tenth: 89.80, twelfth: 92.50, ug: 8.71 },
+  { name: "Lavein S", tenth: 92.00, twelfth: 88.24, ug: 7.22 },
+  { name: "Menaga R", tenth: 80.40, twelfth: 84.45, ug: 8.31 },
+  { name: "Natchathirah V S", tenth: 77.80, twelfth: 82.52, ug: 7.73 },
+  { name: "Naveen Raj K", tenth: 83.80, twelfth: 88.46, ug: 7.91 },
+  { name: "Ramkishan C B", tenth: 76.40, twelfth: 82.10, ug: 8.21 },
+  { name: "Rithi S", tenth: 93.40, twelfth: 83.50, ug: 8.57 },
+  { name: "Ronith Kevin A", tenth: 79.20, twelfth: 82.27, ug: 7.48 },
+  { name: "Sabareesh S", tenth: 90.00, twelfth: 92.50, ug: 7.86 },
+  { name: "Sanjeeth M", tenth: 80.40, twelfth: 85.30, ug: 7.08 },
+  { name: "Sathya R", tenth: 77.40, twelfth: 85.74, ug: 7.14 },
+  { name: "Seshanand S", tenth: 83.20, twelfth: 83.26, ug: 7.64 },
+  { name: "Sournaa sri A", tenth: 84.40, twelfth: 85.90, ug: 7.41 },
+  { name: "Sowmiya Eswari P", tenth: 90.80, twelfth: 93.04, ug: 8.46 },
+  { name: "Sri Nandhini.R", tenth: 78.00, twelfth: 84.54, ug: 8.03 },
+  { name: "Subhashree M", tenth: 76.00, twelfth: 81.15, ug: 8.23 },
+  { name: "Vanitha S", tenth: 91.80, twelfth: 87.18, ug: 7.79 },
+  { name: "Varshini B", tenth: 81.60, twelfth: 84.10, ug: 7.86 },
+  { name: "Varun T M", tenth: 88.00, twelfth: 89.56, ug: 7.93 },
+  { name: "Yeshaashwini K R", tenth: 94.80, twelfth: 93.78, ug: 8.31 }
+];
+
+
+        function filterResults() {
+          
+            const tenthMin = parseFloat(document.getElementById("tenth").value) || 0;
+            const tenthMax = parseFloat(document.getElementById("tenthMax").value) || 100;
+            const twelfthMin = parseFloat(document.getElementById("twelfth").value) || 0;
+            const twelfthMax = parseFloat(document.getElementById("twelfthMax").value) || 100;
+            const ugMin = parseFloat(document.getElementById("ug").value) || 0;
+            const ugMax = parseFloat(document.getElementById("ugMax").value) || 100;
+
+          
+            const filtered = students.filter(student =>
+                student.tenth >= tenthMin && student.tenth <= tenthMax &&
+                student.twelfth >= twelfthMin && student.twelfth <= twelfthMax &&
+                student.ug >= ugMin && student.ug <= ugMax
+            );
+
+            
+            const tableBody = document.getElementById("resultsTable").querySelector("tbody");
+            tableBody.innerHTML = ""; 
+            filtered.forEach(student => {
+                const row = `<tr>
+                    <td>${student.name}</td>
+                    <td>${student.tenth}</td>
+                    <td>${student.twelfth}</td>
+                    <td>${student.ug}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="index3.js"></script>
+</body>
+</html>

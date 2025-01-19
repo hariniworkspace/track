@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+    <link href="style4.css" rel ="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    .card {
+        text-align: center;
+        margin: 20px;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.118);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img {
+        width: 170px;
+        height: 150px;
+        border-radius: 5%;
+        margin-bottom: 0;
+    }
+    .name-data
+{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.096);
+    width: 80%;
+    margin-left: 10%;
+    
+}
+.name-data ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.name-data table td
+{
+    background-color: rgb(14, 86, 180);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 80px;
+    margin-top: 60px;
+    color: white;
+    padding: 30px;
+    
+    
+}
+.table
+{
+    display: grid;
+    grid-template-columns: 2fr 2fr ;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+}
+.span
+{
+    background-color: white;
+    color: black;
+}
+
+.student-data {
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 70%; 
+}
+
+.student-data table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.student-data th, 
+.student-data td {
+    padding: 12px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.student-data th {
+    background-color: rgb(14, 86, 180);
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.student-data tbody tr:hover {
+    background-color: rgba(14, 86, 180, 0.378); 
+    color: white;
+}
+ 
+
+.student-data .cardheader {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+}
+
+.student-data table td {
+    color: #555;
+}
+
+.student-data table th {
+    color: #ffffff;
+}
+.h2
+{
+    text-align: center;
+    margin-top: 5%;
+}
+   
+</style>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <li>
+                <a href="student.html">
+                    <i class="fas fa-user-graduate"></i>
+                    Student
+                </a>
+            </li>
+            <li>
+                <a href="staff.html">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>Staffs</div>
+                </a>
+            </li>
+            <li>
+                <a href="analytics.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>Analytics</div>
+                </a>
+            </li>
+           
+            <div class="help"></div>
+            <li>
+                
+                <a href="help.html">
+                    <i class="fas fa-question"></i>
+                    <div>About</div>
+                </a>
+            </li>
+        </div>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>VCET</h2>
+            </div>
+            <div class="search">
+                <input type="text" id="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+             <img src="./images/user.webp" height="40px" style="margin-left: 10px; margin-top:5px">
+            </div>
+        </div>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <img src="./images/Screenshot 2025-01-12 100116.png" width="100%">
+                    <div class="card-content">
+                        <h3>MADURA COATS</h3>
+                        
+                    </div>
+                </div>
+            </div>
+                <div class="table">
+            <div class="name-data">
+                <h2>Eligiblity Criteria</h2><br/><hr/><br/>
+                <table>
+                    <tbody>
+                        <tr><td><strong>CGPA -</strong> 7.0</td></tr>
+                        <tr><td><strong>10th and 12th -</strong> No Criteria</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="name-data">
+                <h2>Students Eligible</h2><br/><hr/><br/>
+                <table>
+                    <tbody>
+                        <tr><td><strong>No of Students: </strong> 13</td></tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <h2 class="h2">Student's List</h2>
+            <div class="student-data">
+                <div class="details">
+                    <div class="cardheader">
+                    <table>
+                        <thead>
+                            <tr>
+                               <th>Register NO</th> 
+                               <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>913121104004</td>
+                                <td>Sachin Ram R N</td>
+                            </tr>
+                            <tr>
+                                <td>913121104007</td>
+                                <td>Santhoshini K S</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+           
+            </div>
+            </body>
+            </html>
+            

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: linear-gradient(to right top, #7F00FF,#E100FF);
+    }
+    .sec1
+    {
+        display: flex;
+    }
+    h1
+    {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: 10%;
+        color: white;
+    }
+    .i1
+    {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        
+    }
+    h2
+    {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(255, 255, 255);
+
+    }
+    .i2
+    {
+        height: 500px;
+        width: auto;
+        margin-left: 38%;
+        margin-top: 2%;
+        box-shadow: 0 0px 60px 2px#000000;
+        margin-bottom: 5%;
+    }
+    .i2:hover
+    {
+        box-shadow: 0 0px 30px 8px #ffffff;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #000; 
+      }
+      
+      .glitter {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: radial-gradient(circle, #ffdfba, #ffa500);
+        border-radius: 50%;
+        animation: glitter-fade 1.5s ease-out forwards;
+      }
+      
+      @keyframes glitter-fade {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(3);
+        }
+      }
+      
+</style>
+<body>
+    <div class="sec1">
+    <img class="i1" src="./images/images-removebg-preview.png">
+    <h1>VELAMMAL COLLEGE OF ENGINEERING AND TECHNOLOGY</h1></div>
+   <h2>Proudly Presents </h2>
+   <img class="i2" src="./images/Thank you (2).jpg">
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const glitterCount = 100; 
+        const body = document.body;
+      
+        for (let i = 0; i < glitterCount; i++) {
+          createGlitter();
+        }
+      
+        function createGlitter() {
+          const glitter = document.createElement("div");
+          glitter.className = "glitter";
+      
+          
+          const x = Math.random() * window.innerWidth;
+          const y = Math.random() * window.innerHeight;
+      
+         
+          const delay = Math.random() * 1;
+      
+          glitter.style.left = `${x}px`;
+          glitter.style.top = `${y}px`;
+          glitter.style.animationDelay = `${delay}s`;
+      
+          body.appendChild(glitter);
+      
+       
+          glitter.addEventListener("animationend", () => {
+            glitter.remove();
+          });
+        }
+      });
+      
+   </script>
+</body>
+</html>
